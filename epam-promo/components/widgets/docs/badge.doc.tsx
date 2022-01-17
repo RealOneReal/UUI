@@ -5,10 +5,10 @@ import { ButtonProps } from '@epam/uui-components';
 import { FormContext, GridContext, ResizableContext, DefaultContext } from '../../../docs/index';
 import { iconDoc, iconOptionsDoc } from '../../../docs';
 import { colors } from '../../../helpers/colorMap';
-import { allEpamAdditionalColors } from '../../types';
+import { allEpamAdditionalColors, allEpamGrayscaleColors } from '../../types';
 
 const badgeDoc = new DocBuilder<ButtonProps & BadgeMods>({ name: 'Badge', component: Badge })
-    .prop('color', { renderEditor: (editable, examples) => <ColorPicker colors={ examples.map(i => ({ value: i, hex: colors[i] })) } { ...editable } />, examples: allEpamAdditionalColors })
+    .prop('color', { renderEditor: (editable, examples) => <ColorPicker colors={ examples.map(i => ({ value: i, hex: colors[i] })) } { ...editable } />, examples: [...allEpamAdditionalColors, ...allEpamGrayscaleColors] })
     .implements([iconDoc, iconOptionsDoc, dropdownTogglerDoc, onClickDoc, basicPickerTogglerDoc])
     .prop('caption', { examples: [
             { value: 'Badge', isDefault: true },
